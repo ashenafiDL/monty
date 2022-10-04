@@ -8,14 +8,20 @@ This program is coded using C programming language and utilizes stacks and queue
 
 Clone the repository:
 
-`$ git clone https://github.com/ashenafiDL/monty.git
-`$ cd monty`
+```
+$ git clone https://github.com/ashenafiDL/monty.git
+$ cd monty
+```
 
 Compile the program using gcc
-`$ gcc -Wall -Werror -Wextra -pedantic -std=c89 *.c -o monty`
+```
+$ gcc -Wall -Werror -Wextra -pedantic -std=c89 *.c -o monty
+```
 
 Finally run the program using the following command:
 
-`./monty <file>`
+```
+./monty <file>
+```
 
 where <fille> is the path to the file containing Monty byte code
