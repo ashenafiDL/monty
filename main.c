@@ -13,6 +13,7 @@ int main(int argc, char **argv)
 	unsigned int line_number;
 	FILE *file;
 	char *line = NULL, *op;
+	size_t len = 0;
 
 	if (argc != 2)
 	{
@@ -26,8 +27,7 @@ int main(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	}
 	line_number = 1;
-	line = malloc(sizeof(char) * 1024);
-	while (fgets(line, 1024, file) != NULL)
+	while (getline(&line, &len, file) != -1)
 	{
 		if (*line == '\n')
 		{
@@ -35,7 +35,7 @@ int main(int argc, char **argv)
 			continue;
 		}
 		op = strtok(line, " \t\n");
-		if ((!op
+		if ((op == NULL
 			|| strcmp(op, "nop") == 0)
 			|| (strcmp(op, "#") == 0))
 		{
