@@ -1,5 +1,5 @@
 #define  _POSIX_C_SOURCE 200809L
-#include "main.h"
+#include "monty.h"
 
 /**
  * main - entry point of the program
