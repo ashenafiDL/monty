@@ -24,4 +24,4 @@ Finally run the program using the following command:
 ./monty <file>
 ```
 
-where <fille> is the path to the file containing Monty byte code
+where `<fille>` is the path to the file containing Monty byte code
