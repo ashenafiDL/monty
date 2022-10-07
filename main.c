@@ -35,9 +35,7 @@ int main(int argc, char **argv)
 			continue;
 		}
 		op = strtok(line, " \t\n");
-		if ((op == NULL
-			|| strcmp(op, "nop") == 0)
-			|| (strcmp(op, "#") == 0))
+		if (op == NULL || (strcmp(op, "nop") == 0) || op[0] == '#')
 		{
 			line_number++;
 			continue;
