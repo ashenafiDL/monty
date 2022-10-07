@@ -11,6 +11,8 @@ int check_digit(char *str)
 
 	for (i = 0; i < strlen(str); i++)
 	{
+		if (str[i] == '-')
+			continue;
 		if (isdigit(str[i]) == 0)
 			return (0);
 	}
