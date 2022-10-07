@@ -1,8 +1,3 @@
-#swap
-# swap
-    # swap
-    #swap
-    #
-    push 5
-    push 4
-    pall
+push 72
+rotl hol
+pall
