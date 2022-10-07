@@ -35,6 +35,7 @@ int main(int argc, char **argv)
 			continue;
 		}
 		op = strtok(line, " \t\n");
+		printf("op = %s\n", op);
 		if ((op == NULL
 			|| strcmp(op, "nop") == 0)
 			|| (strcmp(op, "#") == 0))
