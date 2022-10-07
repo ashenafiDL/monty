@@ -41,7 +41,7 @@ void rotr(stack_t **stack, unsigned int line_number)
 	top = *stack;
 	bottom = *stack;
 	if (top == NULL || top->prev == NULL)
-		exit(EXIT_SUCCESS);
+		return;
 
 	while (bottom->prev != NULL)
 		bottom = bottom->prev;
