@@ -11,7 +11,7 @@ void swap(stack_t **stack, unsigned int line_number)
 	int temp;
 
 	top = *stack;
-	if (top->prev == NULL || top == NULL)
+	if (top == NULL || top->prev == NULL)
 	{
 		fprintf(stderr,
 			"L%d: can't swap, stack too short\n",
@@ -35,7 +35,7 @@ void add(stack_t **stack, unsigned int line_number)
 	int sum = 0;
 
 	top = *stack;
-	if (top->prev == NULL || top == NULL)
+	if (top == NULL || top->prev == NULL)
 	{
 		fprintf(stderr,
 			"L%d: can't add, stack too short\n",
@@ -63,7 +63,7 @@ void sub(stack_t **stack, unsigned int line_number)
 	int diff;
 
 	top = *stack;
-	if (top->prev == NULL || top == NULL)
+	if (top == NULL || top->prev == NULL)
 	{
 		fprintf(stderr,
 			"L%d: can't sub, stack too short\n",

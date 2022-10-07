@@ -13,7 +13,7 @@ void divide(stack_t **stack, unsigned int line_number)
 	int quo;
 
 	top = *stack;
-	if (top->prev == NULL || top == NULL)
+	if (top == NULL || top->prev == NULL)
 	{
 		fprintf(stderr,
 			"L%d: can't div, stack too short\n",
@@ -46,7 +46,7 @@ void mul(stack_t **stack, unsigned int line_number)
 	int prod;
 
 	top = *stack;
-	if (top->prev == NULL || top == NULL)
+	if (top == NULL || top->prev == NULL)
 	{
 		fprintf(stderr,
 			"L%d: can't mul, stack too short\n",
@@ -76,7 +76,7 @@ void mod(stack_t **stack, unsigned int line_number)
 	div_t result;
 
 	top = *stack;
-	if (top->prev == NULL || top == NULL)
+	if (top == NULL || top->prev == NULL)
 	{
 		fprintf(stderr,
 			"L%d: can't mod, stack too short\n",
