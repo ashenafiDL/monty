@@ -47,5 +47,6 @@ int main(int argc, char **argv)
 	}
 	fclose(file);
 	free(line);
+	free_stack(&stack);
 	return (0);
 }

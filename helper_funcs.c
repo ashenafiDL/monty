@@ -19,3 +19,24 @@ int check_digit(char *str)
 
 	return (1);
 }
+
+/**
+ * free_stack - frees the stack
+ *
+ * @stack: the stack
+ */
+void free_stack(stack_t **stack)
+{
+	stack_t *temp;
+
+	if (*stack == NULL)
+		return;
+
+	temp = *stack;
+	while (temp != NULL)
+	{
+		*stack = temp->prev;
+		free(temp);
+		temp = *stack;
+	}
+}
