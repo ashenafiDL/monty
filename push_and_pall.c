@@ -26,6 +26,13 @@ void push(stack_t **stack, unsigned int line_number)
 	}
 
 	new->n = atoi(argument);
+
+	if (mode.queue == 1)
+	{
+		push_queue(stack, &new);
+		return;
+	}
+
 	new->next = NULL;
 
 	if (*stack == NULL)
@@ -40,6 +47,34 @@ void push(stack_t **stack, unsigned int line_number)
 	new->prev = top;
 	*stack = new;
 }
+
+/**
+ * push_queue - push data in queue mode
+ *
+ * @stack: the stack/queue
+ * @new: the new node
+ */
+void push_queue(stack_t **stack, stack_t **new)
+{
+	stack_t *rear;
+
+	(*new)->prev = NULL;
+
+	if (*stack == NULL)
+	{
+		(*new)->next = NULL;
+		*stack = *new;
+		return;
+	}
+
+	rear = *stack;
+	while (rear->prev != NULL)
+		rear = rear->prev;
+
+	rear->prev = *new;
+	(*new)->next = rear;
+}
+
 
 /**
  * pall - prints the elements of the stack from top to bottom

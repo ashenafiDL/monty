@@ -26,6 +26,16 @@ void get_op_func(stack_t **stack, char *op, unsigned int line_number)
 		{"rotl", rotl},
 		{"rotr", rotr}};
 
+	if (strcmp(op, "queue") == 0)
+	{
+		mode.queue = 1;
+		return;
+	}
+	else if (strcmp(op, "stack") == 0)
+	{
+		mode.queue = 0;
+		return;
+	}
 	for (i = 0; i < sizeof(instructions) / sizeof(instructions_t); i++)
 	{
 		if (strcmp(instructions[i].opcode, op) == 0)

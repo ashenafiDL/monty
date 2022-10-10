@@ -31,7 +31,7 @@ void swap(stack_t **stack, unsigned int line_number)
  */
 void add(stack_t **stack, unsigned int line_number)
 {
-	stack_t *top;
+	stack_t *top, *new;
 	int sum = 0;
 
 	top = *stack;
@@ -47,7 +47,24 @@ void add(stack_t **stack, unsigned int line_number)
 	top = top->prev;
 	pop(stack, line_number);
 	sum += top->n;
-	top->n = sum;
+
+	if (mode.queue == 1)
+	{
+		new = malloc(sizeof(stack_t));
+		if (new == NULL)
+		{
+			fprintf(stderr, "Error: malloc failed\n");
+			exit(EXIT_FAILURE);
+		}
+
+		new->n = sum;
+
+		top = top->prev;
+		pop(stack, line_number);
+		push_queue(stack, &new);
+	}
+	else
+		top->n = sum;
 }
 
 /**
@@ -59,7 +76,7 @@ void add(stack_t **stack, unsigned int line_number)
  */
 void sub(stack_t **stack, unsigned int line_number)
 {
-	stack_t *top;
+	stack_t *top, *new;
 	int diff;
 
 	top = *stack;
@@ -74,6 +91,23 @@ void sub(stack_t **stack, unsigned int line_number)
 	diff = top->prev->n;
 	diff -= top->n;
 	top = top->prev;
-	top->n = diff;
 	pop(stack, line_number);
+
+	if (mode.queue == 1)
+	{
+		new = malloc(sizeof(stack_t));
+		if (new == NULL)
+		{
+			fprintf(stderr, "Error: malloc failed\n");
+			exit(EXIT_FAILURE);
+		}
+
+		new->n = diff;
+
+		top = top->prev;
+		pop(stack, line_number);
+		push_queue(stack, &new);
+	}
+	else
+		top->n = diff;
 }

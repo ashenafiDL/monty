@@ -6,6 +6,12 @@
 #include <string.h>
 #include <ctype.h>
 
+typedef struct mode_selector
+{
+	int queue;
+} mode_s;
+struct mode_selector mode;
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  *
@@ -56,4 +62,5 @@ void pstr(stack_t **stack, unsigned int line_number);
 void rotl(stack_t **stack, unsigned int line_number);
 void rotr(stack_t **stack, unsigned int line_number);
 
+void push_queue(stack_t **stack, stack_t **new_node);
 #endif

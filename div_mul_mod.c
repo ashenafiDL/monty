@@ -9,7 +9,7 @@
  */
 void divide(stack_t **stack, unsigned int line_number)
 {
-	stack_t *top;
+	stack_t *top, *new;
 	int quo;
 
 	top = *stack;
@@ -29,8 +29,24 @@ void divide(stack_t **stack, unsigned int line_number)
 	quo = top->prev->n;
 	quo /= top->n;
 	top = top->prev;
-	top->n = quo;
 	pop(stack, line_number);
+	if (mode.queue == 1)
+	{
+		new = malloc(sizeof(stack_t));
+		if (new == NULL)
+		{
+			fprintf(stderr, "Error: malloc failed\n");
+			exit(EXIT_FAILURE);
+		}
+
+		new->n = quo;
+
+		top = top->prev;
+		pop(stack, line_number);
+		push_queue(stack, &new);
+	}
+	else
+		top->n = quo;
 }
 
 /**
